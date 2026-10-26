@@ -3,13 +3,15 @@ import java.util.Scanner;
 public class Main {
     private static final String SHELL_PROMPT = "$ ";
     public static void main(String[] args) throws Exception {
-        while (true) {
+        boolean running = true;
+        while (running) {
             System.out.print(SHELL_PROMPT);
 
             Scanner scanner = new Scanner(System.in);
 
             String command = scanner.nextLine();
-            System.out.printf("%s: command not found%n", command);
+            if (command.equals("exit")) running = false;
+            else System.out.printf("%s: command not found%n", command);
         }
     }
 }
