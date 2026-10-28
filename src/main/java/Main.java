@@ -1,5 +1,5 @@
+import shell.Utils;
 import shell.commands.Command;
-import shell.commands.Utils;
 
 import java.util.Scanner;
 
