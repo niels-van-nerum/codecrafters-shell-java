@@ -13,7 +13,7 @@ public class Main {
             String command = scanner.nextLine();
             String[] splitCommand = command.split(" ", 2);
             if (command.equals("exit")) running = false;
-            if (splitCommand[0].equals("echo")) { System.out.println(splitCommand[1]); }
+            else if (splitCommand[0].equals("echo")) System.out.println(splitCommand[1]);
             else System.out.printf("%s: command not found%n", command);
         }
     }
