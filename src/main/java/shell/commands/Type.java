@@ -1,11 +1,13 @@
-package commands;
+package shell.commands;
+
+import shell.Utils;
 
 public class Type implements Command {
 
     @Override
     public void execute(String args) {
         try {
-            Class<? extends Command> commandClass = Class.forName(args).asSubclass(Command.class);
+            Class<? extends Command> commandClass = Class.forName(Utils.capitalize(args)).asSubclass(Command.class);
             Command command = commandClass.getDeclaredConstructor().newInstance();
             CommandType type = command.getCommandType();
             System.out.printf("%s is a shell %s", args, type.toString().toLowerCase());

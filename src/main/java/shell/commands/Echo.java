@@ -1,10 +1,10 @@
-package commands;
+package shell.commands;
 
-public class Exit implements Command {
+public class Echo implements Command {
 
     @Override
     public void execute(String args) {
-        System.exit(0);
+        System.out.println(args);
     }
 
     @Override

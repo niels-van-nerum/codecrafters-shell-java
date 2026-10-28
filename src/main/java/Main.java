@@ -1,9 +1,11 @@
-import commands.Command;
+import shell.commands.Command;
+import shell.commands.Utils;
 
 import java.util.Scanner;
 
 public class Main {
     private static final String SHELL_PROMPT = "$ ";
+
     public static void main(String[] args) throws Exception {
         while (true) {
             System.out.print(SHELL_PROMPT);
@@ -13,8 +15,7 @@ public class Main {
             String input = scanner.nextLine();
             String[] splitInput = input.split(" ", 2);
             try {
-                String className = Character.toUpperCase(splitInput[0].charAt(0)) + splitInput[0].substring(1);
-                Class<? extends Command> commandClass = Class.forName("commands." + className).asSubclass(Command.class);
+                Class<? extends Command> commandClass = Class.forName("shell.commands." + Utils.capitalize(splitInput[0])).asSubclass(Command.class);
                 Command command = commandClass.getDeclaredConstructor().newInstance();
                 command.execute(splitInput[1]);
             } catch (ClassNotFoundException e) {
