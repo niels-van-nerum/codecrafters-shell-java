@@ -17,7 +17,7 @@ public class Main {
             try {
                 Class<? extends Command> commandClass = Class.forName("shell.commands." + Utils.capitalize(splitInput[0])).asSubclass(Command.class);
                 Command command = commandClass.getDeclaredConstructor().newInstance();
-                command.execute(splitInput[1]);
+                command.execute(splitInput.length == 2 ? splitInput[1] : null);
             } catch (ClassNotFoundException e) {
                 System.out.printf("%s: command not found%n", splitInput[0]);
             } catch (Exception e) {
