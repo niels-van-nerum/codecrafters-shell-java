@@ -10,7 +10,9 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
 
             String command = scanner.nextLine();
+            String[] splitCommand = command.split(" ");
             if (command.equals("exit")) running = false;
+            if (splitCommand[0].equals("echo")) { System.out.println(splitCommand[1]); }
             else System.out.printf("%s: command not found%n", command);
         }
     }
