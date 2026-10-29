@@ -42,6 +42,7 @@ public class Type implements Command {
 
         Optional<String> commandPath = Arrays.stream(paths).toList()
                 .stream()
+                .peek(IO::println)
                 .filter(p -> Files.isExecutable(Path.of(p)))
                 .filter(p -> commandIsOnPath(p, args))
                 .findFirst();
