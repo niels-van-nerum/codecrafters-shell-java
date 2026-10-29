@@ -38,6 +38,7 @@ public class Type implements Command {
 
     public boolean tryPathCommands(String args) {
         String path = System.getenv("PATH");
+        IO.println(path);
         String[] paths = path.split(File.pathSeparator);
 
         Optional<String> commandPath = Arrays.stream(paths).toList()
