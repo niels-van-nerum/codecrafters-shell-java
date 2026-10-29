@@ -10,6 +10,9 @@ public class Main {
         while (true) {
             System.out.print(SHELL_PROMPT);
 
+            String PATH = System.getenv("PATH");
+            System.out.println(PATH);
+
             Scanner scanner = new Scanner(System.in);
 
             String input = scanner.nextLine();
